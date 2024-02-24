@@ -30,7 +30,6 @@ int main()
 
     listen(sockfd, 5); 
 
-    int clilen = sizeof(cli_addr); 
     clilen = sizeof(cli_addr);
     while (1)
     {
@@ -42,7 +41,11 @@ int main()
         }
 
         std::cout << "Connection success" << std::endl;
+        
+        close(); 
+
     }
+    
 
     return 0;
 }
