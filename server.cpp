@@ -18,8 +18,8 @@ int main()
         return 0;
     }
 
-    serv_addr.sin_family = SOCK_STREAM; 
-    serv_addr.sin_addr.s_addr = inet_addr("100.78.224.37"); 
+    serv_addr.sin_family = AF_INET; 
+    serv_addr.sin_addr.s_addr = INADDR_ANY
     serv_addr.sin_port = htons(7272); 
 
     if (bind(sockfd, (struct sockaddr*)&serv_addr, sizeof(serv_addr)) < 0)
@@ -42,7 +42,6 @@ int main()
 
         std::cout << "Connection success" << std::endl;
         
-        close(); 
 
     }
     
