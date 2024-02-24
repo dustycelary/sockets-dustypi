@@ -7,7 +7,7 @@
 int main()
 {
     int sockfd, tempsockfd, portno; 
-    socklen_t clilen; 
+    socklen_t addr_size; 
     struct sockaddr_in serv_addr, cli_addr; 
 
     sockfd = socket(AF_INET, SOCK_STREAM, 0); 
@@ -30,10 +30,10 @@ int main()
 
     listen(sockfd, 5); 
 
-    clilen = sizeof(cli_addr);
+    addr_size = sizeof(cli_addr);
     while (1)
     {
-        tempsockfd = accept(sockfd, (sockaddr *)&cli_addr, &clilen);
+        tempsockfd = accept(sockfd, (sockaddr *)&cli_addr, &addr_size);
         if (tempsockfd < 0)
         {
             std::cout << "Error accepting connection" << std::endl;
